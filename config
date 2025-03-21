@@ -1,9 +1,9 @@
 # i3 config file (at ~/.config/i3/config)
-
+# 21/03/2025, test hardware: Lenovo 20027 IdeaPad S10-2 Intel Atom Diamondville (N270), 2GB ram, Debian 12.10, works perfect and smooth.
 
 set $mod Mod4
 
-font pango:monospace 8
+font Fira Code:monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
@@ -17,22 +17,17 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
 gaps inner 5
 gaps outer 5
 
 bindsym $mod+Return exec xterm
 
-bindsym $mod+Shift+ kill
+bindsym $mod+Shift+c kill
 bindsym $mod+g exec flameshot gui
 
-bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
-
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+scedilla focus right
+bindsym $mod+r exec --no-startup-id "rofi -modi drun,run -show drun"
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -44,16 +39,14 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+i fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+w layout stacking
 bindsym $mod+e layout toggle split
 
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+Shift+t floating toggle
 
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 set $ws1 "1"
@@ -98,10 +91,10 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym $mod+r mode "default"
+        bindsym $mod+s mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+s mode "resize"
 
 bar {
         status_command i3status
